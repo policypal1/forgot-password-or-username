@@ -1,0 +1,124 @@
+:root {
+  --bg: #1c1c1f;
+  --bg-2: #2c2c2f;
+  --fg: #ffffff;
+  --accent: #2f6df5;
+  --accent-hover: #417bff;
+  --border: #2c2c2f;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 8px 24px;
+  height: 56px;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg);
+}
+
+/* Left cluster */
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.logo {
+  text-decoration: none;
+  color: var(--fg);
+  font-weight: 900;
+  font-size: 20px;
+  letter-spacing: -0.5px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.logo span { font-weight: 700; }
+
+.nav-links {
+  display: flex;
+  gap: 18px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--fg);
+  font-weight: 600;
+  font-size: 14px;
+  opacity: 0.95;
+  transition: opacity .15s ease;
+}
+
+.nav-links a:hover { opacity: 0.7; }
+
+/* Search */
+.search-container {
+  display: flex;
+  align-items: center;
+  min-width: 240px;
+  max-width: 520px;
+  width: 40%;
+  background: var(--bg-2);
+  border: 1px solid #3a3a3e;
+  border-radius: 8px;
+  padding: 6px 10px;
+}
+
+.search-container svg {
+  width: 16px;
+  height: 16px;
+  opacity: 0.65;
+  margin-right: 8px;
+}
+
+.search-container input {
+  width: 100%;
+  background: transparent;
+  border: 0;
+  color: var(--fg);
+  outline: none;
+  font-size: 14px;
+}
+
+/* CTA */
+.signup-btn {
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 36px;
+  padding: 0 16px;
+  border-radius: 8px;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 700;
+  font-size: 14px;
+  border: 1px solid transparent;
+  transition: background .15s ease, transform .04s ease;
+}
+
+.signup-btn:hover { background: var(--accent-hover); }
+.signup-btn:active { transform: translateY(1px); }
+
+/* Small screens: keep layout intact but allow search to shrink */
+@media (max-width: 900px) {
+  .search-container { width: 32%; min-width: 160px; }
+  .nav-links { gap: 14px; }
+}
+
+@media (max-width: 700px) {
+  .nav-links { display: none; } /* optional: hide links on very small screens */
+  .search-container { width: 50%; min-width: 180px; }
+}
